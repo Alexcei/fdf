@@ -77,6 +77,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_fdf.dir/ft_printf/parser.c.o"
   "CMakeFiles/my_fdf.dir/main.c.o"
   "CMakeFiles/my_fdf.dir/read_file.c.o"
+  "CMakeFiles/my_fdf.dir/render.c.o"
   "CMakeFiles/my_fdf.dir/utils.c.o"
   "my_fdf.pdb"
   "my_fdf"

@@ -238,6 +238,11 @@ CMakeFiles/my_fdf.dir/read_file.c.o
  /Users/bpole/CLionProjects/my_fdf/ft_printf/ft_printf.h
  /Users/bpole/CLionProjects/my_fdf/ft_printf/libft/libft.h
  /Users/bpole/CLionProjects/my_fdf/read_file.c
+CMakeFiles/my_fdf.dir/render.c.o
+ /Users/bpole/CLionProjects/my_fdf/fdf.h
+ /Users/bpole/CLionProjects/my_fdf/ft_printf/ft_printf.h
+ /Users/bpole/CLionProjects/my_fdf/ft_printf/libft/libft.h
+ /Users/bpole/CLionProjects/my_fdf/render.c
 CMakeFiles/my_fdf.dir/utils.c.o
  /Users/bpole/CLionProjects/my_fdf/fdf.h
  /Users/bpole/CLionProjects/my_fdf/ft_printf/ft_printf.h

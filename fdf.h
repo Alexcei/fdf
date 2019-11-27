@@ -77,10 +77,15 @@ typedef struct		s_data
 int 				fdf_read_file(int fd, t_data *data);
 
 /*
+**					render.c
+*/
+void	fdf_render(t_data *data);
+
+/*
 **					utils.c
 */
 void				print_error(char *message);
 void				ft_free_char_arr(char ***arr);
-size_t				ft_word_count(char const *str, char c);
+int					ft_word_count(char const *str, char c);
 
 #endif

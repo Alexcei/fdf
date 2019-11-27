@@ -6,7 +6,7 @@
 #    By: bpole <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 10:08:31 by bpole             #+#    #+#              #
-#    Updated: 2019/11/27 11:44:58 by bpole            ###   ########.fr        #
+#    Updated: 2019/11/27 23:31:50 by bpole            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDE = ./
 
 CC = gcc
 
-FLAGS =  #-Wall -Wextra -Werror
+FLAGS =  -Wall -Wextra -Werror
 
 FRAEM = -framework OpenGL -framework AppKit
 

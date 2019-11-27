@@ -20,10 +20,10 @@ void		ft_free_char_arr(char ***arr)
 	}
 }
 
-size_t		ft_word_count(char const *str, char c)
+int			ft_word_count(char const *str, char c)
 {
-	size_t	tr;
-	size_t	res;
+	int		tr;
+	int		res;
 
 	tr = 0;
 	res = 0;

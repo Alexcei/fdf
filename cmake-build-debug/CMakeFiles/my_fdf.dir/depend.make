@@ -238,6 +238,11 @@ CMakeFiles/my_fdf.dir/read_file.c.o: ../ft_printf/ft_printf.h
 CMakeFiles/my_fdf.dir/read_file.c.o: ../ft_printf/libft/libft.h
 CMakeFiles/my_fdf.dir/read_file.c.o: ../read_file.c
 
+CMakeFiles/my_fdf.dir/render.c.o: ../fdf.h
+CMakeFiles/my_fdf.dir/render.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/my_fdf.dir/render.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/my_fdf.dir/render.c.o: ../render.c
+
 CMakeFiles/my_fdf.dir/utils.c.o: ../fdf.h
 CMakeFiles/my_fdf.dir/utils.c.o: ../ft_printf/ft_printf.h
 CMakeFiles/my_fdf.dir/utils.c.o: ../ft_printf/libft/libft.h

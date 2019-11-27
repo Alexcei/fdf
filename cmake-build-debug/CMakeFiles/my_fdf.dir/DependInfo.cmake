@@ -82,6 +82,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/bpole/CLionProjects/my_fdf/ft_printf/parser.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/ft_printf/parser.c.o"
   "/Users/bpole/CLionProjects/my_fdf/main.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/main.c.o"
   "/Users/bpole/CLionProjects/my_fdf/read_file.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/read_file.c.o"
+  "/Users/bpole/CLionProjects/my_fdf/render.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/render.c.o"
   "/Users/bpole/CLionProjects/my_fdf/utils.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

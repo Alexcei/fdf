@@ -2229,6 +2229,33 @@ read_file.c.s:
 	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/read_file.c.s
 .PHONY : read_file.c.s
 
+render.o: render.c.o
+
+.PHONY : render.o
+
+# target to build an object file
+render.c.o:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/render.c.o
+.PHONY : render.c.o
+
+render.i: render.c.i
+
+.PHONY : render.i
+
+# target to preprocess a source file
+render.c.i:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/render.c.i
+.PHONY : render.c.i
+
+render.s: render.c.s
+
+.PHONY : render.s
+
+# target to generate assembly for a file
+render.c.s:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/render.c.s
+.PHONY : render.c.s
+
 utils.o: utils.c.o
 
 .PHONY : utils.o
@@ -2499,6 +2526,9 @@ help:
 	@echo "... read_file.o"
 	@echo "... read_file.i"
 	@echo "... read_file.s"
+	@echo "... render.o"
+	@echo "... render.i"
+	@echo "... render.s"
 	@echo "... utils.o"
 	@echo "... utils.i"
 	@echo "... utils.s"

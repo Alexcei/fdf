@@ -320,7 +320,13 @@
 		<Unit filename="/Users/bpole/CLionProjects/my_fdf/main.c">
 			<Option target="my_fdf"/>
 		</Unit>
+		<Unit filename="/Users/bpole/CLionProjects/my_fdf/minilibx_macos/libmlx.a">
+			<Option target="my_fdf"/>
+		</Unit>
 		<Unit filename="/Users/bpole/CLionProjects/my_fdf/read_file.c">
+			<Option target="my_fdf"/>
+		</Unit>
+		<Unit filename="/Users/bpole/CLionProjects/my_fdf/render.c">
 			<Option target="my_fdf"/>
 		</Unit>
 		<Unit filename="/Users/bpole/CLionProjects/my_fdf/utils.c">
