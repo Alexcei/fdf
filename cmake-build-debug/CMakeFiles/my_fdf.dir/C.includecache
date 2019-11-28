@@ -10,6 +10,10 @@
 fdf.h
 /Users/bpole/CLionProjects/my_fdf/fdf.h
 
+/Users/bpole/CLionProjects/my_fdf/control.c
+fdf.h
+/Users/bpole/CLionProjects/my_fdf/fdf.h
+
 /Users/bpole/CLionProjects/my_fdf/fdf.h
 ft_printf/ft_printf.h
 /Users/bpole/CLionProjects/my_fdf/ft_printf/ft_printf.h
@@ -33,4 +37,24 @@ unistd.h
 -
 fcntl.h
 /Users/bpole/CLionProjects/my_fdf/ft_printf/libft/fcntl.h
+
+/Users/bpole/CLionProjects/my_fdf/main.c
+fdf.h
+/Users/bpole/CLionProjects/my_fdf/fdf.h
+
+/Users/bpole/CLionProjects/my_fdf/projection.c
+fdf.h
+/Users/bpole/CLionProjects/my_fdf/fdf.h
+
+/Users/bpole/CLionProjects/my_fdf/read_file.c
+fdf.h
+/Users/bpole/CLionProjects/my_fdf/fdf.h
+
+/Users/bpole/CLionProjects/my_fdf/render.c
+fdf.h
+/Users/bpole/CLionProjects/my_fdf/fdf.h
+
+/Users/bpole/CLionProjects/my_fdf/utils.c
+fdf.h
+/Users/bpole/CLionProjects/my_fdf/fdf.h
 

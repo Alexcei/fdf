@@ -45,15 +45,15 @@ t_dot		projection(t_dot point, t_data *fdf)
 	point.x *= fdf->camera->zoom;
 	point.y *= fdf->camera->zoom;
 	point.z *= fdf->camera->zoom / fdf->camera->z_divider;
-	point.x -= (fdf->map->width * fdf->camera->zoom) / 2;
-	point.y -= (fdf->map->height * fdf->camera->zoom) / 2;
+	point.x -= (fdf->width * fdf->camera->zoom) / 2;
+	point.y -= (fdf->height * fdf->camera->zoom) / 2;
 	rotate_x(&point.y, &point.z, fdf->camera->alpha);
 	rotate_y(&point.x, &point.z, fdf->camera->beta);
 	rotate_z(&point.x, &point.y, fdf->camera->gamma);
 	if (fdf->camera->projection == ISO)
 		iso(&point.x, &point.y, point.z);
 	point.x += WIDTH / 2 + fdf->camera->x_offset;
-	point.y += (HEIGHT + fdf->map->height * fdf->camera->zoom) / 2
+	point.y += (HEIGHT + fdf->height * fdf->camera->zoom) / 2
 			   + fdf->camera->y_offset;
 	return (point);
 }

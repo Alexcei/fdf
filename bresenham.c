@@ -1,12 +1,6 @@
 #include "fdf.h"
 
-# define NEW_LIGHT(a, b, per)	((int)((1 - per) * a + per * b))
-# define GET_RED(color)		((color >> 16) & 0xFF)
-# define GET_GREEN(color)	((color >> 8) & 0xFF)
-# define GET_BLUE(color)	(color & 0xFF)
-# define RGB(r, g, b)	    ((r << 16) | (g << 8) | b)
-
-static double	percentage(int start, int end, int current)
+double	percent(int start, int end, int current)
 {
 	double		placement;
 	double		distance;
@@ -29,19 +23,28 @@ static void			plot(t_dot point, int color, t_data *fdf)
 	}
 }
 
-int				get_color(t_dot current, t_dot a, t_dot b, t_dot delta)
+int get_light(int start, int end, double percentage)
 {
-	double		percent;
+	return ((int)((1 - percentage) * start + percentage * end));
+}
 
-	if (current.color == b.color)
+int get_color(t_dot current, t_dot start, t_dot end, t_dot delta)
+{
+	int     red;
+	int     green;
+	int     blue;
+	double  percentage;
+
+	if (current.color == end.color)
 		return (current.color);
 	if (delta.x > delta.y)
-		percent = percentage(a.x, b.x, current.x);
+		percentage = percent(start.x, end.x, current.x);
 	else
-		percent = percentage(a.y, b.y, current.y);
-	return (RGB(NEW_LIGHT(GET_RED(a.color), GET_RED(b.color), percent),
-				NEW_LIGHT(GET_GREEN(a.color), GET_GREEN(b.color), percent),
-				NEW_LIGHT(GET_BLUE(a.color), GET_BLUE(b.color), percent)));
+		percentage = percent(start.y, end.y, current.y);
+	red = get_light((start.color >> 16) & 0xFF, (end.color >> 16) & 0xFF, percentage);
+	green = get_light((start.color >> 8) & 0xFF, (end.color >> 8) & 0xFF, percentage);
+	blue = get_light(start.color & 0xFF, end.color & 0xFF, percentage);
+	return ((red << 16) | (green << 8) | blue);
 }
 
 void			render_line(t_dot a, t_dot b, t_data *fdf)

@@ -15,7 +15,7 @@ void	zoom(int key, t_data *fdf)
 		fdf->camera->zoom--;
 	else if (key == MAIN_PAD_0)
 	{
-		fdf->camera->zoom = FT_MIN(WIDTH / fdf->map->width / 2, HEIGHT / fdf->map->height / 2);
+		fdf->camera->zoom = FT_MIN(WIDTH / fdf->width / 2, HEIGHT / fdf->height / 2);
 		fdf->camera->x_offset = 0;
 		fdf->camera->y_offset = 0;
 	}

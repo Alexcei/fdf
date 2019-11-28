@@ -5,8 +5,15 @@
 #include <mlx.h>
 #include <math.h>
 
-# define HEIGHT			1080
-# define WIDTH			1920
+# define COLOR_DISCO		0x9A1F6A
+# define COLOR_BRICK_RED	0xC2294E
+# define COLOR_FLAMINGO		0xEC4B27
+# define COLOR_JAFFA		0xEF8633
+# define COLOR_SAFFRON		0xF3AF3D
+
+
+# define HEIGHT			150 // 1080
+# define WIDTH			300 // 1920
 # define SIZE 			HEIGHT * WIDTH
 # define TEXT_COLOR			0xEAEAEA
 # define BACKGROUND			0xA0B0C0
@@ -47,16 +54,6 @@ typedef struct		s_dot
 	int 			color;
 }					t_dot;
 
-typedef struct		s_map
-{
-	int				width;
-	int				height;
-	int 			size;
-	int				z_min;
-	int				z_max;
-	t_dot			*dot;
-}					t_map;
-
 typedef struct		s_mouse
 {
 	char			isdown;
@@ -69,7 +66,12 @@ typedef struct		s_mouse
 typedef struct		s_data
 {
 	t_camera		*camera;
-	t_map			*map;
+	int				width;
+	int				height;
+	int 			size;
+	int				z_min;
+	int				z_max;
+	t_dot			*dot;
 	t_mouse			*mouse;
 	void			*mlx;
 	void			*win;
@@ -78,16 +80,12 @@ typedef struct		s_data
 	int				bits_per_pixel;
 	int				size_line;
 	int				endian;
-
-	int 	zoom;
-	int 	color;
-	int		shift_x;
-	int     shift_y;
 }					t_data;
 
 /*
 **					bresenham.c
 */
+double				percent(int start, int end, int current);
 void				render_line(t_dot a, t_dot b, t_data *data);
 
 /*

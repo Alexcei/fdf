@@ -12,19 +12,42 @@ void	render_background(t_data *data)
 		image[i++] = BACKGROUND;
 }
 
+static int get_light(int start, int end, double percentage)
+{
+	return ((int)((1 - percentage) * start + percentage * end));
+}
+
+int	get_color1(int z, t_data *map)
+{
+	double	percentage;
+
+	percentage = percent(map->z_min, map->z_max, z);
+	if (percentage < 0.2)
+		return (COLOR_DISCO);
+	else if (percentage < 0.4)
+		return (COLOR_BRICK_RED);
+	else if (percentage < 0.6)
+		return (COLOR_FLAMINGO);
+	else if (percentage < 0.8)
+		return (COLOR_JAFFA);
+	else
+		return (COLOR_SAFFRON);
+}
+
 void	render_map(t_data *data)
 {
 	t_dot	dot;
 	int 	i;
 
 	i = 0;
-	while (i < data->map->size)
+	while (i < data->size)
 	{
-		dot = projection(data->map->dot[i], data);
-		if ((i + 1) % data->map->width != 0)
-			render_line(dot, projection(data->map->dot[i + 1], data), data);
-		if (i / data->map->width != data->map->height - 1)
-			render_line(dot, projection(data->map->dot[i + data->map->width], data), data);
+		data->dot[i].color = get_color1(data->dot[i].z, data);
+		dot = projection(data->dot[i], data);
+		if ((i + 1) % data->width != 0)
+			render_line(dot, projection(data->dot[i + 1], data), data);
+		if (i / data->width != data->height - 1)
+			render_line(dot, projection(data->dot[i + data->width], data), data);
 		i++;
 	}
 }
