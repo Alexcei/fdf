@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/bpole/CLionProjects/my_fdf/bresenham.c">
+			<Option target="my_fdf"/>
+		</Unit>
+		<Unit filename="/Users/bpole/CLionProjects/my_fdf/control.c">
+			<Option target="my_fdf"/>
+		</Unit>
 		<Unit filename="/Users/bpole/CLionProjects/my_fdf/fdf.h">
 			<Option target="my_fdf"/>
 		</Unit>
@@ -321,6 +327,9 @@
 			<Option target="my_fdf"/>
 		</Unit>
 		<Unit filename="/Users/bpole/CLionProjects/my_fdf/minilibx_macos/libmlx.a">
+			<Option target="my_fdf"/>
+		</Unit>
+		<Unit filename="/Users/bpole/CLionProjects/my_fdf/projection.c">
 			<Option target="my_fdf"/>
 		</Unit>
 		<Unit filename="/Users/bpole/CLionProjects/my_fdf/read_file.c">

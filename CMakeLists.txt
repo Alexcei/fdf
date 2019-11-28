@@ -10,7 +10,7 @@ file(GLOB FILES
         "ft_printf/libft/*.c"
         "ft_printf/libft/libft.h")
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -framework OpenGL -framework AppKit -L. -lmlx")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -lmlx -framework OpenGL -framework AppKit -L")
 set(CMAKE_C_STANDARD 99)
 #add_definitions(-Wall -Wextra -Werror)
-add_executable(my_fdf ${FILES} render.c)
+add_executable(my_fdf ${FILES})

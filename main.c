@@ -6,7 +6,7 @@ int		fdf_init(t_data *data, t_map *map, t_mouse *mouse, t_camera *camera)
 	ft_bzero(mouse, sizeof(mouse));
 	ft_bzero(data, sizeof(data));
 	ft_bzero(map, sizeof(map));
-	data->camera = camera;
+
 	data->mouse = mouse;
 	data->map = map;
 	if (!(data->mlx = mlx_init()) ||
@@ -15,6 +15,15 @@ int		fdf_init(t_data *data, t_map *map, t_mouse *mouse, t_camera *camera)
 		return (0);
 	data->data_addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->size_line, &data->endian);
+
+	camera->alpha = 0;
+	camera->beta = 0;
+	camera->gamma = 0;
+	camera->z_divider = 1;
+	camera->x_offset = 0;
+	camera->y_offset = -30;
+	camera->projection = ISO;
+	data->camera = camera;
 	return (1);
 }
 
@@ -36,7 +45,7 @@ int 	main(int ac, char **av)
 	if (fd < 0 || !fdf_read_file(fd, &data))
 		print_error("error: reading fail");
 	fdf_render(&data);
-	//fdf_control(&data);
+	fdf_control(&data);
 	mlx_loop(&data.mlx);
 	return (0);
 }

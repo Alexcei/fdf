@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/bpole/CLionProjects/my_fdf/bresenham.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/bresenham.c.o"
+  "/Users/bpole/CLionProjects/my_fdf/control.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/control.c.o"
   "/Users/bpole/CLionProjects/my_fdf/ft_printf/bonus_wildcard.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/ft_printf/bonus_wildcard.c.o"
   "/Users/bpole/CLionProjects/my_fdf/ft_printf/ft_fprintf.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/ft_printf/ft_fprintf.c.o"
   "/Users/bpole/CLionProjects/my_fdf/ft_printf/ft_printf.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/ft_printf/ft_printf.c.o"
@@ -81,6 +83,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/bpole/CLionProjects/my_fdf/ft_printf/output_x.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/ft_printf/output_x.c.o"
   "/Users/bpole/CLionProjects/my_fdf/ft_printf/parser.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/ft_printf/parser.c.o"
   "/Users/bpole/CLionProjects/my_fdf/main.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/main.c.o"
+  "/Users/bpole/CLionProjects/my_fdf/projection.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/projection.c.o"
   "/Users/bpole/CLionProjects/my_fdf/read_file.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/read_file.c.o"
   "/Users/bpole/CLionProjects/my_fdf/render.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/render.c.o"
   "/Users/bpole/CLionProjects/my_fdf/utils.c" "/Users/bpole/CLionProjects/my_fdf/cmake-build-debug/CMakeFiles/my_fdf.dir/utils.c.o"

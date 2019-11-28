@@ -18,7 +18,7 @@ LIB_DIR_X = ./minilibx_macos/
 LIBFT = $(LIB_DIR)libftprintf.a
 LIBFT_X = $(LIB_DIR_X)libmlx.a
 
-SRC = main.c utils.c read_file.c
+SRC = main.c utils.c read_file.c render.c projection.c bresenham.c control.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -123,6 +123,60 @@ my_fdf/fast:
 	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/build
 .PHONY : my_fdf/fast
 
+bresenham.o: bresenham.c.o
+
+.PHONY : bresenham.o
+
+# target to build an object file
+bresenham.c.o:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/bresenham.c.o
+.PHONY : bresenham.c.o
+
+bresenham.i: bresenham.c.i
+
+.PHONY : bresenham.i
+
+# target to preprocess a source file
+bresenham.c.i:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/bresenham.c.i
+.PHONY : bresenham.c.i
+
+bresenham.s: bresenham.c.s
+
+.PHONY : bresenham.s
+
+# target to generate assembly for a file
+bresenham.c.s:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/bresenham.c.s
+.PHONY : bresenham.c.s
+
+control.o: control.c.o
+
+.PHONY : control.o
+
+# target to build an object file
+control.c.o:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/control.c.o
+.PHONY : control.c.o
+
+control.i: control.c.i
+
+.PHONY : control.i
+
+# target to preprocess a source file
+control.c.i:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/control.c.i
+.PHONY : control.c.i
+
+control.s: control.c.s
+
+.PHONY : control.s
+
+# target to generate assembly for a file
+control.c.s:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/control.c.s
+.PHONY : control.c.s
+
 ft_printf/bonus_wildcard.o: ft_printf/bonus_wildcard.c.o
 
 .PHONY : ft_printf/bonus_wildcard.o
@@ -2202,6 +2256,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/main.c.s
 .PHONY : main.c.s
 
+projection.o: projection.c.o
+
+.PHONY : projection.o
+
+# target to build an object file
+projection.c.o:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/projection.c.o
+.PHONY : projection.c.o
+
+projection.i: projection.c.i
+
+.PHONY : projection.i
+
+# target to preprocess a source file
+projection.c.i:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/projection.c.i
+.PHONY : projection.c.i
+
+projection.s: projection.c.s
+
+.PHONY : projection.s
+
+# target to generate assembly for a file
+projection.c.s:
+	$(MAKE) -f CMakeFiles/my_fdf.dir/build.make CMakeFiles/my_fdf.dir/projection.c.s
+.PHONY : projection.c.s
+
 read_file.o: read_file.c.o
 
 .PHONY : read_file.o
@@ -2292,6 +2373,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... my_fdf"
+	@echo "... bresenham.o"
+	@echo "... bresenham.i"
+	@echo "... bresenham.s"
+	@echo "... control.o"
+	@echo "... control.i"
+	@echo "... control.s"
 	@echo "... ft_printf/bonus_wildcard.o"
 	@echo "... ft_printf/bonus_wildcard.i"
 	@echo "... ft_printf/bonus_wildcard.s"
@@ -2523,6 +2610,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... projection.o"
+	@echo "... projection.i"
+	@echo "... projection.s"
 	@echo "... read_file.o"
 	@echo "... read_file.i"
 	@echo "... read_file.s"

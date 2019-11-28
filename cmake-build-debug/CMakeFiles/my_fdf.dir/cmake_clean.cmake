@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/my_fdf.dir/bresenham.c.o"
+  "CMakeFiles/my_fdf.dir/control.c.o"
   "CMakeFiles/my_fdf.dir/ft_printf/bonus_wildcard.c.o"
   "CMakeFiles/my_fdf.dir/ft_printf/ft_fprintf.c.o"
   "CMakeFiles/my_fdf.dir/ft_printf/ft_printf.c.o"
@@ -76,6 +78,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_fdf.dir/ft_printf/output_x.c.o"
   "CMakeFiles/my_fdf.dir/ft_printf/parser.c.o"
   "CMakeFiles/my_fdf.dir/main.c.o"
+  "CMakeFiles/my_fdf.dir/projection.c.o"
   "CMakeFiles/my_fdf.dir/read_file.c.o"
   "CMakeFiles/my_fdf.dir/render.c.o"
   "CMakeFiles/my_fdf.dir/utils.c.o"

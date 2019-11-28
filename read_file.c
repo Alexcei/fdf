@@ -7,11 +7,12 @@ static void		creat_arr(t_data *data, char *coords)
 
 	i = 0;
 	arr = ft_strsplit(coords, ' ');
-	data->map->arr_z = (int*)ft_memalloc(sizeof(int) *
-			data->map->height * data->map->width);
+	data->map->dot = (t_dot*)ft_memalloc(sizeof(t_dot) * data->map->size);
 	while (arr[i])
 	{
-		data->map->arr_z[i] = ft_atoi(arr[i]);
+		data->map->dot[i].x = i % data->map->width;
+		data->map->dot[i].y = i / data->map->width;
+		data->map->dot[i].z = ft_atoi(arr[i]);
 		i++;
 	}
 	ft_free_char_arr(&arr);
@@ -47,6 +48,8 @@ int 			fdf_read_file(int fd, t_data *data)
 		data->map->height++;
 		ft_strdel(&line);
 	}
+	data->map->size = data->map->width * data->map->height;
+	data->camera->zoom = FT_MIN(WIDTH / data->map->width / 2, HEIGHT / data->map->height / 2);
 	creat_arr(data, coords);
 	return (1);
 }
