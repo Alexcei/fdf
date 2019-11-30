@@ -1,59 +1,46 @@
 #include "fdf.h"
 
-static void	rotate_x(int *y, int *z, double alpha)
+void	rotate1(t_dot *dot, double alpha, double beta)
 {
-	int previous_y;
+	double		x;
+	double		y;
 
-	previous_y = *y;
-	*y = previous_y * cos(alpha) + *z * sin(alpha);
-	*z = -previous_y * sin(alpha) + *z * cos(alpha);
+	x = dot->x;
+	y = dot->y;
+	dot->x = cos(beta) * x + sin(beta) * dot->z;
+	dot->z = -sin(beta) * x + cos(beta) * dot->z;
+	dot->y = cos(alpha) * y - sin(alpha) * dot->z;
+	dot->z = sin(alpha) * y + cos(alpha) * dot->z;
 }
 
-static void	rotate_y(int *x, int *z, double beta)
+t_dot		projection(t_dot dot, t_data *data)
 {
-	int previous_x;
-
-	previous_x = *x;
-	*x = previous_x * cos(beta) + *z * sin(beta);
-	*z = -previous_x * sin(beta) + *z * cos(beta);
+	dot.x -= (data->width - 1) / 2;
+	dot.y -= (data->height - 1) / 2;
+	dot.z -= (data->z_min + data->z_max) / 2;
+	if (data->camera->projection == 0)
+		rotate1(&dot, 0, 0);
+	else if (data->camera->projection == 1)
+		rotate1(&dot, 1.570796, 0);
+	else if (data->camera->projection == 2)
+		rotate1(&dot, 0, 1.570796);
+	else if (data->camera->projection == 3)
+		{
+			dot.x = (dot.x - dot.y) * cos(1);
+			dot.y = (dot.x + dot.y) * sin(1.1) - dot.z;
+		}
+	else
+		rotate1(&dot, data->camera->alpha, data->camera->beta);
+	dot.x *= data->camera->zoom;
+	dot.y *= data->camera->zoom;
+	dot.x += data->camera->x_offset;
+	dot.y += data->camera->y_offset;
+	return (dot);
 }
 
-static void	rotate_z(int *x, int *y, double gamma)
+/*
+void	rotate1(t_dot *dot, double alpha, double beta)
 {
-	int previous_x;
-	int previous_y;
-
-	previous_x = *x;
-	previous_y = *y;
-	*x = previous_x * cos(gamma) - previous_y * sin(gamma);
-	*y = previous_x * sin(gamma) + previous_y * cos(gamma);
-}
-
-static void	iso(int *x, int *y, int z)
-{
-	int previous_x;
-	int previous_y;
-
-	previous_x = *x;
-	previous_y = *y;
-	*x = (previous_x - previous_y) * cos(0.46373398);
-	*y = -z + (previous_x + previous_y) * sin(0.46373398);
-}
-
-t_dot		projection(t_dot point, t_data *fdf)
-{
-	point.x *= fdf->camera->zoom;
-	point.y *= fdf->camera->zoom;
-	point.z *= fdf->camera->zoom / fdf->camera->z_divider;
-	point.x -= (fdf->width * fdf->camera->zoom) / 2;
-	point.y -= (fdf->height * fdf->camera->zoom) / 2;
-	rotate_x(&point.y, &point.z, fdf->camera->alpha);
-	rotate_y(&point.x, &point.z, fdf->camera->beta);
-	rotate_z(&point.x, &point.y, fdf->camera->gamma);
-	if (fdf->camera->projection == ISO)
-		iso(&point.x, &point.y, point.z);
-	point.x += WIDTH / 2 + fdf->camera->x_offset;
-	point.y += (HEIGHT + fdf->height * fdf->camera->zoom) / 2
-			   + fdf->camera->y_offset;
-	return (point);
-}
+	dot->x = (dot->x - dot->y) * cos(alpha + beta);
+	dot->y = (dot->x + dot->y) * sin(alpha - beta) - dot->z;
+}*/

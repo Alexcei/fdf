@@ -13,8 +13,10 @@ int		fdf_init(t_data *data, t_mouse *mouse, t_camera *camera)
 		return (0);
 	data->data_addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->size_line, &data->endian);
-	camera->z_divider = 1;
-	camera->projection = ISO;
+	data->camera->x_offset = WIDTH / 2;
+	data->camera->y_offset = HEIGHT / 2;
+	camera->z_scale = 10;
+	camera->projection = 3;
 	return (1);
 }
 

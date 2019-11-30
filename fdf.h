@@ -5,34 +5,17 @@
 #include <mlx.h>
 #include <math.h>
 
-# define COLOR_DISCO		0x9A1F6A
-# define COLOR_BRICK_RED	0xC2294E
-# define COLOR_FLAMINGO		0xEC4B27
-# define COLOR_JAFFA		0xEF8633
-# define COLOR_SAFFRON		0xF3AF3D
-
-
-# define HEIGHT			150 // 1080
-# define WIDTH			300 // 1920
-# define SIZE 			HEIGHT * WIDTH
+# define COLOR_FDF			0xFFFFFF
 # define TEXT_COLOR			0xEAEAEA
 # define BACKGROUND			0xA0B0C0
 
-# define FT_MIN(a, b)		(((a) < (b)) ? (a) : (b))
+# define HEIGHT			300//1080
+# define WIDTH			600//1920
+# define SIZE 			HEIGHT * WIDTH
 
-typedef				enum
-{
-					false,
-					true
-}					t_bool;
-
-typedef 			enum
-{
-					ISO,
-					PARALLEL_FRONT,
-					PARALLEL_SIDE,
-					PARALLEL_ABOVE
-}					t_projection;
+# define FT_MIN(a, b) (a < b ? a : b)
+# define MAX(a, b) (a > b ? a : b)
+# define MOD(a) (a < 0 ? -a : a)
 
 typedef struct		s_camera
 {
@@ -40,18 +23,17 @@ typedef struct		s_camera
 	double			alpha;
 	double			beta;
 	double			gamma;
-	float			z_divider;
-	int				x_offset;
-	int				y_offset;
-	t_projection	projection;
+	float			z_scale;
+	double			x_offset;
+	double			y_offset;
+	int				projection;
 }					t_camera;
 
 typedef struct		s_dot
 {
-	int				x;
-	int 			y;
-	int 			z;
-	int 			color;
+	double			x;
+	double			y;
+	double			z;
 }					t_dot;
 
 typedef struct		s_mouse
@@ -85,7 +67,6 @@ typedef struct		s_data
 /*
 **					bresenham.c
 */
-double				percent(int start, int end, int current);
 void				render_line(t_dot a, t_dot b, t_data *data);
 
 /*
