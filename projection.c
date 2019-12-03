@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   projection.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/03 01:28:20 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/03 01:28:38 by bpole            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void	rotate1(t_dot *dot, double alpha, double beta)
+static void		rotate(t_dot *dot, double alpha, double beta)
 {
 	double		x;
 	double		y;
@@ -13,34 +25,27 @@ void	rotate1(t_dot *dot, double alpha, double beta)
 	dot->z = sin(alpha) * y + cos(alpha) * dot->z;
 }
 
-t_dot		projection(t_dot dot, t_data *data)
+t_dot			transformations(t_dot dot, t_data *data)
 {
 	dot.x -= (data->width - 1) / 2;
 	dot.y -= (data->height - 1) / 2;
 	dot.z -= (data->z_min + data->z_max) / 2;
-	if (data->camera->projection == 0)
-		rotate1(&dot, 0, 0);
-	else if (data->camera->projection == 1)
-		rotate1(&dot, 1.570796, 0);
-	else if (data->camera->projection == 2)
-		rotate1(&dot, 0, 1.570796);
-	else if (data->camera->projection == 3)
-		{
-			dot.x = (dot.x - dot.y) * cos(1);
-			dot.y = (dot.x + dot.y) * sin(1.1) - dot.z;
-		}
-	else
-		rotate1(&dot, data->camera->alpha, data->camera->beta);
+	if (data->camera->view_selection == FRONT)
+		rotate(&dot, 0, 0);
+	else if (data->camera->view_selection == TOP)
+		rotate(&dot, 1.570796, 0);
+	else if (data->camera->view_selection == SIDE)
+		rotate(&dot, 0, 1.570796);
+	else if (data->camera->view_selection == ISO)
+	{
+		dot.x = (dot.x - dot.y) * cos(1);
+		dot.y = (dot.x + dot.y) * sin(1.1) - dot.z;
+	}
+	else if (data->camera->view_selection == FREE)
+		rotate(&dot, data->camera->alpha, data->camera->beta);
 	dot.x *= data->camera->zoom;
 	dot.y *= data->camera->zoom;
 	dot.x += data->camera->x_offset;
 	dot.y += data->camera->y_offset;
 	return (dot);
 }
-
-/*
-void	rotate1(t_dot *dot, double alpha, double beta)
-{
-	dot->x = (dot->x - dot->y) * cos(alpha + beta);
-	dot->y = (dot->x + dot->y) * sin(alpha - beta) - dot->z;
-}*/

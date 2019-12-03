@@ -6,7 +6,7 @@
 #    By: bpole <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 10:08:31 by bpole             #+#    #+#              #
-#    Updated: 2019/11/27 23:31:50 by bpole            ###   ########.fr        #
+#    Updated: 2019/12/03 22:13:42 by bpole            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,14 +37,17 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(MAKE) -C $(LIB_DIR)
+	$(MAKE) -C $(LIB_DIR_X)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(LIBFT_X) $(FRAEM)
 
 clean:
 	rm -rf $(OBJ)
 	$(MAKE) -C $(LIB_DIR) clean
+	$(MAKE) -C $(LIB_DIR_X) clean
 
 fclean: clean
 	rm -rf $(NAME)
 	$(MAKE) -C $(LIB_DIR) fclean
+	$(MAKE) -C $(LIB_DIR_X) fclean
 
 re: fclean all

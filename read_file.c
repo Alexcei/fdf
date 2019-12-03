@@ -1,9 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_file.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/03 01:28:45 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/04 01:21:14 by bpole            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
+
+static int		get_color(char *str)
+{
+	int			i;
+
+	i = 0;
+	while (str[i] && str[i] != ',')
+		i++;
+	if (str + i + 3)
+		return (ft_atoi_base(str + i + 3, 16));
+	return (0);
+}
 
 static void		creat_arr(t_data *data, char *coords)
 {
-	char 		**arr;
-	int 		i;
+	char		**arr;
+	int			i;
 
 	i = 0;
 	arr = ft_strsplit(coords, ' ');
@@ -12,6 +36,8 @@ static void		creat_arr(t_data *data, char *coords)
 	{
 		data->dot[i].x = i % data->width;
 		data->dot[i].y = i / data->width;
+		if (ft_strchr(arr[i], ','))
+			data->dot[i].color = get_color(arr[i]);
 		data->dot[i].z = ft_atoi(arr[i]);
 		if (data->dot[i].z > data->z_max)
 			data->z_max = data->dot[i].z;
@@ -25,17 +51,17 @@ static void		creat_arr(t_data *data, char *coords)
 
 static void		ft_strjoin_and_free(char **mutable, char *str)
 {
-	char 		*tmp;
+	char		*tmp;
 
 	tmp = *mutable;
 	*mutable = ft_strjoin(*mutable, str);
 	ft_strdel(&tmp);
 }
 
-int 			fdf_read_file(int fd, t_data *data)
+int				fdf_read_file(int fd, t_data *data)
 {
-	char 		*line;
-	char 		*coords;
+	char		*line;
+	char		*coords;
 
 	line = NULL;
 	coords = ft_strnew(0);
@@ -52,8 +78,10 @@ int 			fdf_read_file(int fd, t_data *data)
 		data->height++;
 		ft_strdel(&line);
 	}
-	data->size = data->width * data->height;
-	data->camera->zoom = FT_MIN(WIDTH / data->width / 2, HEIGHT / data->height / 2);
+	if (!(data->size = data->width * data->height))
+		return (0);
+	data->camera->zoom = FT_MIN(WIDTH / data->width / 2,
+			HEIGHT / data->height / 2);
 	creat_arr(data, coords);
 	return (1);
 }
